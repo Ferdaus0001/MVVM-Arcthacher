@@ -26,12 +26,11 @@ class NetworkApiServices extends BaseApiServices {
   }
 
   @override
-  Future getPostApiResponse(String uri) async {
-    // Example POST request, you can modify it
+  Future<dynamic> getPostApiResponse(String uri, dynamic data) async {
     dynamic responseJson;
     try {
       final response = await http
-          .post(Uri.parse(uri), body: {})
+          .post(Uri.parse(uri), body: data)
           .timeout(const Duration(seconds: 10));
       responseJson = _returnResponse(response);
     } on SocketException {
