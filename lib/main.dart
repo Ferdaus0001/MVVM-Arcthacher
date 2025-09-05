@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:mvvm/unitls/routes/routes_naem.dart';
-
-import 'package:mvvm/view/home_screen.dart';
-
 void main() {
   runApp(const MyApp());
 }
