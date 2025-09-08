@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm/respository/auth_view_model.dart';
+import 'package:provider/provider.dart';
 import '../res/components/cusotm_text_form_fild.dart';
 import '../unitls/utils.dart';
 
@@ -26,6 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final authViewModel = Provider.of<AuthViewModel>(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -86,6 +89,11 @@ class _LoginScreenState extends State<LoginScreen> {
                      Utils.flushBarErrorMessage('Enter 6 Detgets Passwoed', context);
                    }else{
                      debugPrint('Api Hit in UI ');
+                     Map data = {
+                       'email': email.text.toString(),
+                       'password': password.toString(),
+                     };
+                     authViewModel.loginApi(data,context);
                    }
                 },
                 child: const Text(
